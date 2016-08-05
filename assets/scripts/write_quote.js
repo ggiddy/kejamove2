@@ -40,11 +40,11 @@ $(document).ready(function(){
         //minimum moving distance is 3km
         if(distance < 3){distance=3}
         var increament = 5;
-        if(distance < 100){increament = 5}
-        if(distance > 100 && distance <= 200){increament = 4}
-        if(distance > 200 && distance <= 300){increament = 3}
-        if(distance > 300 && distance <= 500){increament = 2}
-        if(distance > 500){increament = 1}
+        if(distance < 100){increament = 5;}
+        if(distance > 100 && distance <= 200){increament = 4;}
+        if(distance > 200 && distance <= 300){increament = 3;}
+        if(distance > 300 && distance <= 500){increament = 2;}
+        if(distance > 500){increament = 1;}
 
         var distance_cost=0;
         var dis = 0;

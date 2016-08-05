@@ -151,7 +151,7 @@ class App extends CI_Controller
         //send email to kejamove
         $email_to = $this->config->item('recepient_email');
 
-        $sent = $this->send_mail($request, 'nggitau@gmail.com', 'New Move Request', 'email/request');
+        $sent = $this->send_mail($request, $email_to, 'New Move Request', 'email/request');
 
         if($sent){ redirect('app/success'); } else { echo 'Not Sent';}
     }
@@ -281,10 +281,10 @@ class App extends CI_Controller
         $this->email->initialize($config);
 
         //prepare mail
-        $this->email->from('nggitau@gmail.com', 'Giddy');
+        $this->email->from($this->config->item('from_email'), 'Kejamove');
         $this->email->to($email_to);
         $this->email->subject($subject);
-        $message = $this->load->view($email_template, array('request'=>$request), TRUE);
+        $message = $this->load->view($email_template, array('request' => $request), TRUE);
         $this->email->message($message);
 
         //return true if sending is successful false othewise
@@ -422,10 +422,17 @@ class App extends CI_Controller
             $distance = 3;
         }
 
+        $increament = 5;
+        if($distance < 100){$increament = 5;}
+        if($distance > 100 && $distance <= 200){$increament = 4;}
+        if($distance > 200 && $distance <= 300){$increament = 3;}
+        if($distance > 300 && $distance <= 500){$increament = 2;}
+        if($distance > 500){$increament = 1;}
+
         $distance_cost=0;
         $dis = 0;
         while($dis <= $distance){
-            $dis+=5;
+            $dis+=$increament;
             $distance_cost += 18085*pow($dis, -1.183);
         }
 
