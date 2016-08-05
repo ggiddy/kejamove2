@@ -1,0 +1,18 @@
+{
+  "name": "kejamove",
+  "description": "An application that handles house moving",
+  "main": "",
+  "authors": [
+    "nggitau@gmail.com"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
